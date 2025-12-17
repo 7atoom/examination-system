@@ -1,0 +1,16 @@
+# IDE
+.idea/
+*. iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*. log
+
+# Dependencies (if you add them later)
+node_modules/
+
+# Environment variables (if used)
+.env
