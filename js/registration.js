@@ -121,13 +121,13 @@ registerBtn.addEventListener('click', function(e) {
     }
 
     if (isValid) {
-        var userData = {
+        var user = {
             firstName: firstNameInput.value.trim(),
             lastName: lastNameInput.value.trim(),
             email: emailInput.value.trim(),
             password: passwordInput.value
         };
-        Storage.saveUser(userData);
+        Storage.saveUser(user);
 
         window.location.href = '../pages/login.html';
     }

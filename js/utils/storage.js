@@ -1,44 +1,38 @@
-var Storage = {
-    // Save data to localStorage
-    set: function(key, value) {
-        localStorage.setItem(key, JSON.stringify(value));
-    },
+var Storage = (function() {
 
-    // Get data from localStorage
-    get: function(key) {
-        var data = localStorage.getItem(key);
-        return data ? JSON.parse(data) : null;
-    },
-
-    // Remove data from localStorage
-    remove: function(key) {
-        localStorage.removeItem(key);
-    },
-
-    // Clear all localStorage
-    clear: function() {
-        localStorage.clear();
-    },
-
-    // Check if key exists
-    exists: function(key) {
-        return localStorage.getItem(key) !== null;
-    },
-
-    // User specific methods
-    saveUser: function(userData) {
-        this.set('userData', userData);
-    },
-
-    getUser: function() {
-        return this.get('userData');
-    },
-
-    removeUser: function() {
-        this.remove('userData');
-    },
-
-    isLoggedIn: function() {
-        return this.exists('userData');
+    function saveUser(user) {
+        localStorage.setItem('user', JSON.stringify(user));
     }
-};
+
+    function getUser() {
+        var user = localStorage.getItem('user');
+        return user ? JSON.parse(user) : null;
+    }
+
+    function setLoggedIn(value) {
+        localStorage.setItem('isLoggedIn', JSON.stringify(value));
+    }
+
+    function isLoggedIn() {
+        var status = localStorage.getItem('isLoggedIn');
+        return status ? JSON.parse(status) : false;
+    }
+
+    function clearSession() {
+        localStorage.removeItem('isLoggedIn');
+    }
+
+    function removeUser() {
+        localStorage.removeItem('user');
+        localStorage.removeItem('isLoggedIn');
+    }
+
+    return {
+        saveUser: saveUser,
+        getUser: getUser,
+        setLoggedIn: setLoggedIn,
+        isLoggedIn: isLoggedIn,
+        clearSession: clearSession,
+        removeUser: removeUser
+    }
+})();
