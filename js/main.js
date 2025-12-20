@@ -5,7 +5,7 @@ console.log("Logout button found:", logoutBtn);
 console.log("Start Exam button found:", startExam);
 console.log("User Name Display found:", userNameDisplay);
 
-Auth.requireLogin();
+// Auth.requireLogin();
 
 startExam.addEventListener("click", function() {
     window.location.href = "../pages/exam.html";
