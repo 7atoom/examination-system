@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "answers": [
+      {"answer": "Berlin", "isCorrect": false},
+      {"answer": "Madrid", "isCorrect": false},
+      {"answer": "Paris", "isCorrect": true},
+      {"answer": "Rome", "isCorrect": false}
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which planet is known as the Red Planet?",
+    "answers": [
+      {"answer": "Earth", "isCorrect": false},
+      {"answer": "Mars", "isCorrect": true},
+      {"answer": "Jupiter", "isCorrect": false},
+      {"answer": "Saturn", "isCorrect": false}
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What is the largest ocean on Earth?",
+    "answers": [
+      {"answer": "Atlantic Ocean", "isCorrect": false},
+      {"answer": "Indian Ocean", "isCorrect": false},
+      {"answer": "Arctic Ocean", "isCorrect": false},
+      {"answer": "Pacific Ocean", "isCorrect": true}
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What is the chemical symbol for gold?",
+    "answers": [
+      {"answer": "Au", "isCorrect": true},
+      {"answer": "Ag", "isCorrect": false},
+      {"answer": "Pb", "isCorrect": false},
+      {"answer": "Fe", "isCorrect": false}
+    ]
+  },
+    {
+        "id": 5,
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "answers": [
+          {"answer": "Charles Dickens", "isCorrect": false},
+          {"answer": "William Shakespeare", "isCorrect": true},
+          {"answer": "Mark Twain", "isCorrect": false},
+          {"answer": "Jane Austen", "isCorrect": false}
+        ]
+    },
+    {
+        "id": 6,
+        "question": "What is the powerhouse of the cell?",
+        "answers": [
+          {"answer": "Nucleus", "isCorrect": false},
+          {"answer": "Mitochondria", "isCorrect": true},
+          {"answer": "Ribosome", "isCorrect": false},
+          {"answer": "Endoplasmic Reticulum", "isCorrect": false}
+        ]
+    },
+    {
+        "id": 7,
+        "question": "Which element has the atomic number 1?",
+        "answers": [
+          {"answer": "Oxygen", "isCorrect": false},
+          {"answer": "Hydrogen", "isCorrect": true},
+          {"answer": "Carbon", "isCorrect": false},
+          {"answer": "Nitrogen", "isCorrect": false}
+        ]
+    },
+    {
+        "id": 8,
+        "question": "What is the largest mammal in the world?",
+        "answers": [
+          {"answer": "Elephant", "isCorrect": false},
+          {"answer": "Blue Whale", "isCorrect": true},
+          {"answer": "Giraffe", "isCorrect": false},
+          {"answer": "Hippopotamus", "isCorrect": false}
+        ]
+    },
+    {
+        "id": 9,
+        "question": "In which year did the Titanic sink?",
+        "answers": [
+          {"answer": "1912", "isCorrect": true},
+          {"answer": "1905", "isCorrect": false},
+          {"answer": "1918", "isCorrect": false},
+          {"answer": "1920", "isCorrect": false}
+        ]
+    },
+    {
+        "id": 10,
+        "question": "What is the hardest natural substance on Earth?",
+        "answers": [
+          {"answer": "Gold", "isCorrect": false},
+          {"answer": "Iron", "isCorrect": false},
+          {"answer": "Diamond", "isCorrect": true},
+          {"answer": "Silver", "isCorrect": false}
+        ]
+    }
+]

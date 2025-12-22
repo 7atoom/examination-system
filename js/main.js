@@ -5,7 +5,7 @@ console.log("Logout button found:", logoutBtn);
 console.log("Start Exam button found:", startExam);
 console.log("User Name Display found:", userNameDisplay);
 
-// Check if user is logged in, redirect to login if not (use correct path from root)
+// Check if user is logged in, redirect to log in if not (use correct path from root)
 Auth.requireLogin('pages/login.html');
 
 // handle back button navigation

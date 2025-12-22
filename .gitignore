@@ -1,16 +1,38 @@
 # IDE
 .idea/
-*. iml
+*.iml
+*.ipr
+*.iws
+.vscode/
 
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Logs
-*. log
+*.log
+npm-debug.log*
 
 # Dependencies (if you add them later)
 node_modules/
+bower_components/
 
-# Environment variables (if used)
+# Environment variables
 .env
+.env.local
+.env.*.local
+
+# Build output (if you add build tools later)
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Package manager lock files (optional - some prefer to commit these)
+# package-lock.json
+# yarn.lock
