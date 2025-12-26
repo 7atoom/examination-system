@@ -17,27 +17,30 @@
       href="../assets/libs/fontawesome/css/solid.min.css"
     />
     <link rel="stylesheet" href="../css/exam.css" />
+    <script src="../js/utils/storage.js" defer></script>
+    <script src="../js/utils/Auth.js" defer></script>
+    <script src="../js/exam.js" defer></script>
   </head>
   <body>
     <div class="parent">
       <div class="timer">
         <div class="timer-header">
           <div class="top">
-            <h1>Welcome, Ahmed Hatem</h1>
-            <p>Question 1 of 10</p>
+            <h1>Welcome, <span></span></h1>
+            <p>Question <span id="solved-count">1</span> of <span class="total-questions">10</span></p>
           </div>
           <div class="right-side">
             <div class="answered-count">
-              <span>Answered</span> <span>0 / 10</span>
+                <span>Answered <span id="question-number">0</span> / <span class="total-questions">10</span> </span>
             </div>
             <div class="time-remaining">
               <i class="fa-solid fa-clock"></i>
-              <span>05:00</span>
+              <span id="time-remaining">05:00</span>
             </div>
           </div>
         </div>
-        <div class="timer-bar">
-          <div class="progress-bar"></div>
+        <div class="progress-bar">
+          <div id="progress-bar"></div>
         </div>
       </div>
       <div class="question-navigator">
@@ -53,7 +56,7 @@
             <li class="current">Current</li>
           </ul>
         </div>
-        <div class="question-grid">
+        <div class="questions-grid">
           <div class="question current">1</div>
           <div class="question not-answered">2</div>
           <div class="question marked">3</div>
@@ -82,7 +85,7 @@
           <div class="question">
             <h2>What is the capital of France?</h2>
           </div>
-          <div class="mark-button">
+          <div id="mark-btn">
             <i class="fa-solid fa-flag"></i>
           </div>
         </div>
@@ -105,12 +108,12 @@
           </div>
         </div>
         <div class="action-buttons">
-          <div class="prev-button">
+          <div id="prev-btn">
             <button>
               <i class="fa-solid fa-arrow-left"></i>
             </button>
           </div>
-          <div class="next-button">
+          <div id="next-btn">
             <button>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
