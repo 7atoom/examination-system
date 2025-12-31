@@ -14,16 +14,16 @@ backbutton.addEventListener("click", function () {
   window.location.href = "../index.html";
 });
 
-// جلب النتيجة من localStorage
+// localStorage
 const examResults = JSON.parse(localStorage.getItem("examResults"));
 
-// التأكد إن فيه بيانات
+// see if theres values or not
 if (examResults && examResults.totalQuestions) {
-  // حساب عدد الإجابات الصحيحة
+  //calc corect answers
   const totalCorrect =
     examResults.totalQuestions - examResults.wrongAnswers.length;
 
-  // اختيار الديف المناسب للعرض
+  // put wrong or right icon
   const correctIcon = document.querySelector(".examicon2"); // أيقونة الصح
   const wrongIcon = document.querySelector(".examicon"); // أيقونة الغلط
   const tryAgainDiv = document.querySelector(".try-again");
@@ -39,9 +39,9 @@ if (examResults && examResults.totalQuestions) {
   }
 }
 
-// التأكد إن فيه بيانات
+// see there's results
 if (examResults) {
-  // جلب الـ divs اللي هيتحط فيها النتائج
+  // what div you will put in the values
   const scoreDiv = document.querySelector(
     ".score-container div:nth-child(1) h3"
   );
@@ -55,11 +55,11 @@ if (examResults) {
     ".score-container div:nth-child(4) h3"
   );
 
-  // حط القيم
+  // put values
   scoreDiv.textContent = `${examResults.score}/${examResults.totalQuestions}`;
   percentageDiv.textContent = `${examResults.percentage}%`;
 
-  // حساب الدرجة
+  // calc grade
   let grade = "";
   if (examResults.percentage >= 90) grade = "A+";
   else if (examResults.percentage >= 80) grade = "A";
@@ -70,7 +70,7 @@ if (examResults) {
 
   gradeDiv.textContent = grade;
 
-  // حالة الطالب
+  // student status
   statusDiv.textContent = examResults.percentage >= 50 ? "Passed" : "Failed";
 }
 
@@ -79,8 +79,8 @@ const correctDiv = document.querySelector(
 );
 const wrongDiv = document.querySelector(".answers-contianer .wrong-answers h3");
 
-const correctCount = examResults.correctAnswers.length; // عدد الإجابات الصحيحة
-const wrongCount = examResults.wrongAnswers.length; // عدد الإجابات الخاطئة
+const correctCount = examResults.correctAnswers.length; // right answer count
+const wrongCount = examResults.wrongAnswers.length; // worng answer count
 
 correctDiv.textContent = correctCount;
 wrongDiv.textContent = wrongCount;
