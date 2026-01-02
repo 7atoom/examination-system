@@ -1,0 +1,91 @@
+// ============== TIMER ==============
+
+var timerBar = document.getElementById("timer-bar");
+var timerRemaining = document.getElementById("timer-remaining");
+
+if (sessionStorage.getItem("examCompleted") === "true") {
+    // Exam was completed, redirect to index
+    window.location.replace("../index.html");
+}
+
+// Try to restore time left from sessionStorage
+var savedTimeLeft = sessionStorage.getItem("timeLeft");
+
+var totalTime = 60; // 1 minute in seconds
+var timeLeft = totalTime;
+var timerInterval;
+
+if (savedTimeLeft !== null) {
+    timeLeft = parseInt(savedTimeLeft, 10);
+}
+
+function startTimer() {
+    timerRemaining.textContent = formatTime(timeLeft);
+    var progressPercent = (timeLeft / totalTime) * 100;
+    timerBar.style.width = progressPercent + "%";
+
+    // Set initial color if time was restored at a low value
+    if (timeLeft <= 10) {
+        timerBar.style.backgroundColor = "#ef4444";
+        timerRemaining.style.color = "#ef4444";
+    } else if (timeLeft <= 30) {
+        timerBar.style.backgroundColor = "#f59e0b";
+        timerRemaining.style.color = "#f59e0b";
+    }
+
+    timerInterval = setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            showTimesUpModal();
+        } else {
+            timeLeft--;
+            timerRemaining.textContent = formatTime(timeLeft);
+            var progressPercent = (timeLeft / totalTime) * 100;
+            timerBar.style.width = progressPercent + "%";
+
+            // Save time left for recovery
+            sessionStorage.setItem("timeLeft", timeLeft.toString());
+
+            // Change color when time is running low
+            if (timeLeft <= 10) {
+                timerBar.style.backgroundColor = "#ef4444"; // Red - critical
+                timerRemaining.style.color = "#ef4444";
+            } else if (timeLeft <= 30) {
+                timerBar.style.backgroundColor = "#f59e0b"; // Orange - warning
+                timerRemaining.style.color = "#f59e0b";
+            }
+        }
+    }, 1000);
+}
+
+function formatTime(seconds) {
+    var mins = Math.floor(seconds / 60);
+    var secs = seconds % 60;
+    return mins.toString().padStart(2, '0') + ":" + secs.toString().padStart(2, '0');
+}
+
+function showTimesUpModal() {
+    var modal = document.getElementById("times-up-modal");
+    if (modal) {
+        modal.classList.remove("hidden");
+        modal.style.display = "flex";
+    }
+}
+
+function hideTimesUpModal() {
+    var modal = document.getElementById("times-up-modal");
+    if (modal) {
+        modal.classList.add("hidden");
+        modal.style.display = "none";
+    }
+}
+
+// Handle close button click
+var closeTimesUpBtn = document.getElementById("close-times-up");
+if (closeTimesUpBtn) {
+    closeTimesUpBtn.addEventListener("click", function() {
+        hideTimesUpModal();
+        submitExam();
+    });
+}
+

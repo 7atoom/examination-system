@@ -88,7 +88,7 @@ body {
   height: 100%;
   background-color: #4b4bdd;
   width: 100%;
-  transition: width 0.5s ease-in-out;
+  transition: width 1s linear, background-color 0.5s ease;
 }
 
 .question-navigator {
@@ -528,6 +528,7 @@ body {
   animation: modalSlideIn 0.3s ease;
 }
 
+
 @keyframes modalSlideIn {
   from {
     opacity: 0;
@@ -641,7 +642,7 @@ body {
   background-color: #3a3ac1;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 590px) {
   .action-buttons {
     flex-direction: column;
     gap: 15px;

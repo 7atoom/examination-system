@@ -10,6 +10,7 @@ if (user && user.firstName) {
   userNameDisplay.textContent = "Guest";
 }
 
+
 // Clear exam session data to prevent returning to exam
 sessionStorage.removeItem("examInProgress");
 sessionStorage.removeItem("userAnswers");

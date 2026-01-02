@@ -458,58 +458,6 @@ function submitExam() {
   window.location.href = "results.html";
 }
 
-// ============== TIMER ==============
-
-var totalTime = 5 * 60; // 5 minutes in seconds
-var timeLeft = totalTime;
-var timerInterval;
-
-function startTimer() {
-  timerRemaining.textContent = formatTime(timeLeft);
-  var progressPercent = (timeLeft / totalTime) * 100;
-  timerBar.style.width = progressPercent + "%";
-
-  // Set initial color if time was restored at a low value
-  if (timeLeft <= 60) {
-    timerBar.style.backgroundColor = "#ef4444";
-    timerRemaining.style.color = "#ef4444";
-  } else if (timeLeft <= 120) {
-    timerBar.style.backgroundColor = "#f59e0b";
-    timerRemaining.style.color = "#f59e0b";
-  }
-
-  timerInterval = setInterval(function() {
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      alert("Time's up! Your exam will be submitted automatically.");
-      submitExam();
-    } else {
-      timeLeft--;
-      timerRemaining.textContent = formatTime(timeLeft);
-      var progressPercent = (timeLeft / totalTime) * 100;
-      timerBar.style.width = progressPercent + "%";
-
-      // Save time left for recovery
-      sessionStorage.setItem("timeLeft", timeLeft.toString());
-
-      // Change color when time is running low
-      if (timeLeft <= 60) {
-        timerBar.style.backgroundColor = "#ef4444"; // Red
-        timerRemaining.style.color = "#ef4444";
-      } else if (timeLeft <= 120) {
-        timerBar.style.backgroundColor = "#f59e0b"; // Orange
-        timerRemaining.style.color = "#f59e0b";
-      }
-    }
-  }, 1000);
-}
-
-function formatTime(seconds) {
-  var mins = Math.floor(seconds / 60);
-  var secs = seconds % 60;
-  return mins.toString().padStart(2, '0') + ":" + secs.toString().padStart(2, '0');
-}
-
 // ============== EVENT LISTENERS ==============
 
 // Load questions when page loads
