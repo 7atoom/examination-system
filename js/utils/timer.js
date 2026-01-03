@@ -8,6 +8,14 @@ if (sessionStorage.getItem("examCompleted") === "true") {
     window.location.replace("../index.html");
 }
 
+// Check if exam timed out (user reloaded while times up modal was showing)
+if (sessionStorage.getItem("examTimedOut") === "true") {
+    // Show the modal again on page load
+    window.addEventListener("DOMContentLoaded", function() {
+        showTimesUpModal();
+    });
+}
+
 // Try to restore time left from sessionStorage
 var savedTimeLeft = sessionStorage.getItem("timeLeft");
 
@@ -20,6 +28,11 @@ if (savedTimeLeft !== null) {
 }
 
 function startTimer() {
+    // Don't start timer if exam already timed out
+    if (sessionStorage.getItem("examTimedOut") === "true") {
+        return;
+    }
+
     timerRemaining.textContent = formatTime(timeLeft);
     var progressPercent = (timeLeft / totalTime) * 100;
     timerBar.style.width = progressPercent + "%";
@@ -36,6 +49,8 @@ function startTimer() {
     timerInterval = setInterval(function() {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
+            sessionStorage.setItem("examTimedOut", "true");
+            sessionStorage.removeItem("timeLeft");
             showTimesUpModal();
         } else {
             timeLeft--;
@@ -86,6 +101,9 @@ if (closeTimesUpBtn) {
     closeTimesUpBtn.addEventListener("click", function() {
         hideTimesUpModal();
         submitExam();
+        sessionStorage.removeItem("timeLeft");
+        sessionStorage.removeItem("examTimedOut");
+        sessionStorage.setItem("examCompleted", "true");
     });
 }
 
