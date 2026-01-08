@@ -8,7 +8,7 @@ body {
 }
 
 .parent {
-  margin: 0px 50px 0px 50px;
+  margin: 0 50px 0 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -214,7 +214,7 @@ body {
   text-align: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 18px;
-  color: #333;
+  /*color: #333;*/
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -230,9 +230,49 @@ body {
 }
 
 .questions-grid .question.marked {
-  background-color: #f6b50e;
-  color: #fff3cd;
+  border: 3px solid #f6b50e;
+  background-color: white;
+  color: black;
   animation: fadeIn 0.5s ease-in;
+  position: relative;
+}
+
+.questions-grid .question.marked::after {
+  content: "\f024";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f6b50e;
+  color: white;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Mark indicator for current + marked question */
+.questions-grid .question.current .mark-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f6b50e;
+  color: white;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .questions-grid .question.not-answered {
@@ -244,7 +284,9 @@ body {
   border: 3px solid #4b4bdd;
   background-color: white;
   animation: fadeIn 0.5s ease-in;
+  position: relative;
 }
+
 
 .questions-stats {
   display: flex;
@@ -590,17 +632,26 @@ body {
 }
 
 .exam-summary {
-  background-color: #f8f9fa;
+  /*background-color: #f8f9fa;*/
   padding: 15px 20px;
   border-radius: 10px;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
 }
 
 .exam-summary p {
   margin: 8px 0;
   font-size: 15px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+
 }
 
 .exam-summary strong {
@@ -671,11 +722,3 @@ body {
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

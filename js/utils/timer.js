@@ -1,7 +1,7 @@
 // ============== TIMER ==============
 
-var timerBar = document.getElementById("timer-bar");
-var timerRemaining = document.getElementById("timer-remaining");
+var timerBar = document.getElementById("progress-bar");
+var timerRemaining = document.getElementById("time-remaining");
 
 if (sessionStorage.getItem("examCompleted") === "true") {
   // Exam was completed, redirect to index

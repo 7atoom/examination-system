@@ -10,7 +10,9 @@ var emailError = document.getElementById("emailError");
 var passwordError = document.getElementById("passwordError");
 var confirmPasswordError = document.getElementById("confirmPasswordError");
 var show_pw_btn = document.querySelector("#passeye");
+var show_pw_btn_confirm = document.querySelector("#passeyeConfirm");
 var pw_input = document.querySelector("#password");
+var cpw_input = document.querySelector("#confirmPassword");
 
 // showpassword
 show_pw_btn.addEventListener("click", () => {
@@ -18,6 +20,13 @@ show_pw_btn.addEventListener("click", () => {
   show_pw_btn.classList.toggle("fa-eye");
   show_pw_btn.classList.toggle("fa-eye-slash");
   show_pw_btn.classList.toggle("active");
+});
+
+show_pw_btn_confirm.addEventListener("click", () => {
+  cpw_input.type = cpw_input.type === "password" ? "text" : "password";
+  show_pw_btn_confirm.classList.toggle("fa-eye");
+  show_pw_btn_confirm.classList.toggle("fa-eye-slash");
+  show_pw_btn_confirm.classList.toggle("active");
 });
 
 // validation on input

@@ -3,9 +3,9 @@ var userName = document.querySelector(".top h1 span");
 var solvedCount = document.getElementById("solved-count");
 var totalCount = document.getElementById("total-questions");
 var totalCount2 = document.getElementById("all-questions");
-var questionNumber = document.getElementById("question-number");
-var timerRemaining = document.getElementById("time-remaining");
 var timerBar = document.getElementById("progress-bar");
+var timerRemaining = document.getElementById("time-remaining");
+var questionNumber = document.getElementById("question-number");
 var questionsNav = document.querySelector(".questions-grid");
 var answeredQuestionsStats = document.querySelector(".state-item.answered").children[1];
 var unansweredQuestionsStats = document.querySelector(".state-item.not-answered").children[1];
@@ -351,8 +351,22 @@ function updateNavigatorStatus() {
   navButtons.forEach(function(btn, index) {
     btn.classList.remove("current", "answered", "marked", "not-answered");
 
+    // Remove existing icon if any
+    var existingIcon = btn.querySelector(".mark-indicator");
+    if (existingIcon) {
+      existingIcon.remove();
+    }
+
+    // Add current class if this is the current question
     if (index === currentQuestionIndex) {
       btn.classList.add("current");
+
+      // If also marked, add a small flag icon indicator
+      if (markedQuestions[index]) {
+        var icon = document.createElement("i");
+        icon.className = "fa-solid fa-flag mark-indicator";
+        btn.appendChild(icon);
+      }
     } else if (markedQuestions[index]) {
       btn.classList.add("marked");
     } else if (userAnswers[index] !== null) {

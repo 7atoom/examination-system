@@ -10,11 +10,6 @@ var Auth = (function() {
 
     function logout(){
         Storage.clearSession();
-        if (window.location.pathname.includes('/pages/')) {
-            window.location.href = 'login.html';
-        } else {
-            window.location.href = 'pages/login.html';
-        }
     }
 
     function getCurrentUser() {
